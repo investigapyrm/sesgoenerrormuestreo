@@ -1,0 +1,20 @@
+{
+  "name": "R & RStudio Devcontainer",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "settings": {
+    // Para que VS Code use R para code lenses y knitr
+    "r.rterm.linux": "/usr/local/bin/R",
+    "r.rpath.linux": "/usr/local/bin/R"
+  },
+  "extensions": [
+    "ikuyadeu.r",             // Extensión de soporte R
+    "REditorSupport.r-lsp",   // Language Server para R
+    "yzhang.markdown-all-in-one"
+  ],
+  "forwardPorts": [
+    8787                       // si usas RStudio Server
+  ],
+  "postCreateCommand": "R -e \"install.packages(c('rmarkdown','knitr','ggplot2','dplyr'))\""
+}
